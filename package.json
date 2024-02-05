@@ -1,0 +1,16 @@
+{
+  "name": "appiumpractice",
+  "devDependencies": {
+    "@wdio/appium-service": "^8.29.7",
+    "@wdio/cli": "^8.29.7",
+    "@wdio/local-runner": "^8.29.7",
+    "@wdio/mocha-framework": "^8.29.3",
+    "@wdio/spec-reporter": "^8.29.7",
+    "appium": "^2.0.1",
+    "appium-uiautomator2-driver": "^2.44.0",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js"
+  }
+}
