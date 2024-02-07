@@ -33,3 +33,13 @@ appium driver install uiautomator2
 ```bash
 npm install @types/webdriverio --save-dev
 ```
+
+## Steps to start appium tests
+
+```bash
+appium -a 127.0.0.1 -p 4723
+```
+
+```bash
+npx wdio for starting tests
+```
