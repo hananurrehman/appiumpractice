@@ -36,9 +36,13 @@ npm install @types/webdriverio --save-dev
 
 ## Steps to start appium tests
 
+In a separate terminal:
+
 ```bash
 appium -a 127.0.0.1 -p 4723
 ```
+
+In project directory:
 
 ```bash
 npx wdio
