@@ -10,7 +10,7 @@ describe("My Demo App tests", () => {
     await expect(menuItemCatalog).toHaveText("Catalog");
   });
 
-  it.only("Add/delete product from cart", async () => {
+  it("Add/delete product from cart", async () => {
     await $(
       '//android.widget.TextView[@content-desc="store item text" and @text="Sauce Labs Backpack"]'
     ).click();
@@ -18,6 +18,10 @@ describe("My Demo App tests", () => {
     await $(
       '//android.view.ViewGroup[@content-desc="cart badge"]/android.widget.ImageView'
     ).click();
-    expect(await $("~product label")).toHaveText("Sauce Labs Backpack");
+    await expect(await $("~product label")).toHaveText("Sauce Labs Backpack");
+    await $('//android.widget.TextView[@text="Remove Item"]').click();
+    await expect(
+      await $('//android.widget.TextView[@text="No Items"]')
+    ).toExist();
   });
 });
