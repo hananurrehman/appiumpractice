@@ -48,7 +48,7 @@ In project directory:
 npx wdio
 ```
 
-## Some issues and how I worked aroudn them
+## Some issues and how I worked around them
 
 ### Relaunching android app without reseting app state
 
