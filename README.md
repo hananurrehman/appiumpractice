@@ -65,17 +65,18 @@ and in the wdio.conf.js we need to add to the capabilities:
 "appium:noReset": "true"
 ```
 
-Now the thing is, with this approach you will be left with the app not reseting after the tests, so to do that we need the following method:
+Now the thing is, with this approach you will be left with the app not reseting after the tests, the solution here is to add the following in the wdio.conf.js file:
 
 ```bash
-await driver.removeApp("com.saucelabs.mydemoapp.rn");
+onComplete: async function () {
+    await driver.removeApp("com.saucelabs.mydemoapp.rn");
+  },
 ```
-
-This should be added in hook that runs when all tests have executed so when you run the tests again, you have a fresh new state.
 
 ### Running tests in more than 1 file
 
 For some reason, when I split my tests into 2 files I ran into following issues:
+
 `An unknown server-side error occurred while processing the command. Original error: 'POST /element' cannot be proxied to UiAutomator2 server because the instrumentation process is not running (probably crashed). Check the server log and/or the logcat output for more details`
 
 `The session identified by ... is not known`
@@ -83,11 +84,14 @@ For some reason, when I split my tests into 2 files I ran into following issues:
 `ERROR webdriver: Request failed with status 404 due to invalid session id: The session identified by ..... is not known`
 
 To resolve this we need to remove the following apps from our test device:
+
 `io.appium.uiautomator2.server`
 `io.appium.uiautomator2.server.test`
+
 You can also remove these as part of your teardown since the above provided strings are the app IDs.
 
 and we need to set max instances to 1 in the wdio.conf.js file:
+
 `maxInstances: 1`
 
 ### Appium inspector stuck on 'Gathering initial app source…'
