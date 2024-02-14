@@ -1,4 +1,5 @@
 const path = require("path");
+const { testApiCall } = require("./test/helpers/apicalls");
 
 exports.config = {
   //
@@ -25,6 +26,10 @@ exports.config = {
   //
   specs: ["./test/spec/**/*.ts"],
   // Patterns to exclude.
+  onComplete: async function () {
+    await testApiCall();
+    await driver.removeApp("com.saucelabs.mydemoapp.rn");
+  },
   exclude: [
     // 'path/to/excluded/files'
   ],
@@ -299,9 +304,6 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: async function () {
-    await driver.removeApp("com.saucelabs.mydemoapp.rn");
-  },
 
   /**
    * Gets executed when a refresh happens.
