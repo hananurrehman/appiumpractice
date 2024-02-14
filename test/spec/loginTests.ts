@@ -1,4 +1,4 @@
-const pomPage = require("../page-object/pom.page");
+import pomPage from "../page-object/pom.page";
 describe("Login tests", () => {
   it("Login, confirm login state and then logout", async () => {
     //Perform login

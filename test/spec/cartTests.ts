@@ -1,4 +1,4 @@
-const pomPage = require("../page-object/pom.page");
+import pomPage from "../page-object/pom.page";
 describe("Cart Tests", () => {
   it("Add/delete product from cart", async () => {
     await pomPage.leftMenuBtn.click();
