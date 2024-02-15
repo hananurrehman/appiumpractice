@@ -57,8 +57,30 @@ async function testRequestMethodApiCall() {
     });
 }
 
+//You can also define a configuration object and then pass it to the request method.
+async function testRequestMethodApiCallV2() {
+  let config = {
+    method: "post",
+    url: "/api/users",
+    data: {
+      name: "Jason",
+      job: "Bourne",
+    },
+  };
+  await instance
+    .request(config)
+    .then(function (response) {
+      console.log("Request Method API V2: ", response.data);
+      console.log("Request Method API V2: ", response.status);
+    })
+    .catch(function (error) {
+      console.log("Failed with: ", error.response.status);
+    });
+}
+
 module.exports = {
   testGetApiCall,
   testPostApiCall,
   testRequestMethodApiCall,
+  testRequestMethodApiCallV2,
 };
