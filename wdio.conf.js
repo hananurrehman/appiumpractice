@@ -1,5 +1,9 @@
 const path = require("path");
-const { testApiCall } = require("./test/helpers/apicalls");
+const {
+  testGetApiCall,
+  testPostApiCall,
+  testRequestMethodApiCall,
+} = require("./test/helpers/apicalls");
 
 exports.config = {
   //
@@ -27,7 +31,9 @@ exports.config = {
   specs: ["./test/spec/**/*.ts"],
   // Patterns to exclude.
   onComplete: async function () {
-    await testApiCall();
+    await testGetApiCall();
+    await testPostApiCall();
+    await testRequestMethodApiCall();
     await driver.removeApp("com.saucelabs.mydemoapp.rn");
   },
   exclude: [
