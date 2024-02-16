@@ -1,6 +1,6 @@
 import pomPage from "../page-object/pom.page";
 describe("Cart Tests", () => {
-  it.only("Add/delete product from cart", async () => {
+  it("Add/delete product from cart", async () => {
     await pomPage.leftMenuBtn.click();
     await pomPage.menuItemCatalog.click();
     await pomPage.firstItem.click();

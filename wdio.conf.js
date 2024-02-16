@@ -3,6 +3,7 @@ const {
   testGetApiCall,
   testPostApiCall,
   testRequestMethodApiCall,
+  testRequestMethodApiCallV2,
 } = require("./test/helpers/apicalls");
 
 exports.config = {
@@ -34,6 +35,7 @@ exports.config = {
     await testGetApiCall();
     await testPostApiCall();
     await testRequestMethodApiCall();
+    await testRequestMethodApiCallV2();
     await driver.removeApp("com.saucelabs.mydemoapp.rn");
   },
   exclude: [
@@ -81,7 +83,7 @@ exports.config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "silent",
+  logLevel: "info",
   //
   // Set specific log levels per logger
   // loggers:
