@@ -29,15 +29,15 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./test/spec/**/*.ts"],
+  specs: [["./test/spec/loginTests.ts", "./test/spec/cartTests.ts"]],
   // Patterns to exclude.
   onComplete: async function () {
     await testGetApiCall();
     await testPostApiCall();
     await testRequestMethodApiCall();
     await testRequestMethodApiCallV2();
-    await driver.removeApp("com.saucelabs.mydemoapp.rn");
   },
+
   exclude: [
     // 'path/to/excluded/files'
   ],

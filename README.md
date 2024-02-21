@@ -59,18 +59,33 @@ await driver.terminateApp("com.saucelabs.mydemoapp.rn")
 await driver.activateApp("com.saucelabs.mydemoapp.rn")
 ```
 
-and in the wdio.conf.js we need to add to the capabilities:
+and in the wdio.conf.js we can follow 2 approaches:
+
+#### Running all tests regardless of sequence
+
+A thing to note here is that when you don't specify a sequence, webdrverIO will execute each test in it's own worker. Which means, for each worker, the app will be reinstalled.
+If we want to run all the tests regardless of the sequence then we need to add to the capabilities:
 
 ```bash
 "appium:noReset": "true"
 ```
 
-Now the thing is, with this approach you will be left with the app not reseting after the tests, the solution here is to add the following in the wdio.conf.js file:
+Now the thing is, with this approach you will be left with the app not reseting after the tests have executed, the solution here is to add the following in the last test that executes:
 
 ```bash
-onComplete: async function () {
+after( async function () {
     await driver.removeApp("com.saucelabs.mydemoapp.rn");
-  },
+  }),
+```
+
+#### Running tests in a sequence
+
+In this approach, your tests will be grouped together, and webdrverIO will execute them in a single worker. This means your app state will remain as is for all the tests and everytime you run the tests, you will have a fresh new state.
+
+This is how you can define a sequence:
+
+```bash
+specs: [["./test/spec/loginTests.ts", "./test/spec/cartTests.ts"]],
 ```
 
 ### Running tests in more than 1 file
@@ -98,3 +113,7 @@ and we need to set max instances to 1 in the wdio.conf.js file:
 
 So in this one, I launched the appium inspector server but it got stuck on 'Gathering initial app source…'
 The fix for this is the same as mentioned above i.e. removing the uiautomator2 apps.
+
+```
+
+```
