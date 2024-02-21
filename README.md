@@ -3,6 +3,7 @@
 This project demonstrates my learning of Native Android App Automation with Appium and WebdriverIO.
 
 The goal here is exploring the possibilities....because this combination of frameworks lacks adequate documentation.
+(Note: If you notice I have .ts and .js files alongside each other, that's because I tried to migrate the project from js to ts but it turned out to be a bit complicated.)
 
 ## Global Setup for Appium
 
