@@ -113,7 +113,3 @@ and we need to set max instances to 1 in the wdio.conf.js file:
 
 So in this one, I launched the appium inspector server but it got stuck on 'Gathering initial app source…'
 The fix for this is the same as mentioned above i.e. removing the uiautomator2 apps.
-
-```
-
-```
