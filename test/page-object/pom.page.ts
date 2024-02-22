@@ -43,17 +43,22 @@ class PomPage extends Page {
   // Cart test objects
   get firstItem() {
     return $(
-      '//android.widget.TextView[@content-desc="store item text" and @text="Sauce Labs Backpack"]'
+      `//android.widget.TextView[@content-desc="store item text" and @text="Sauce Labs Backpack"]`
     );
   }
 
+  get lastItem() {
+    return $(
+      `//android.widget.TextView[@content-desc="store item text" and @text="Test.allTheThings() T-Shirt"]`
+    );
+  }
   get addToCartBtn() {
-    return $('//android.widget.TextView[@text="Add To Cart"]');
+    return $(`//android.widget.TextView[@text="Add To Cart"]`);
   }
 
   get cartBtn() {
     return $(
-      '//android.view.ViewGroup[@content-desc="cart badge"]/android.widget.ImageView'
+      `//android.view.ViewGroup[@content-desc="cart badge"]/android.widget.ImageView`
     );
   }
 
