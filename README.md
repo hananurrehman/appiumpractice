@@ -1,6 +1,6 @@
 # Appium Android Testing Practice Project
 
-This project demonstrates my learning of Native Android App Automation with Appium and WebdriverIO.
+I created this project for some PoC and R&D into my Appium journey (I have some more detailed projects planned on this topic)
 
 The goal here is exploring the possibilities....because this combination of frameworks lacks adequate documentation.
 (Note: If you notice I have .ts and .js files alongside each other, that's because I tried to migrate the project from js to ts but it turned out to be a bit complicated.)
